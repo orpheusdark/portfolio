@@ -1,7 +1,4 @@
-import {
-  vitePlugin as remix,
-  cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
-} from '@remix-run/dev';
+import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import jsconfigPaths from 'vite-jsconfig-paths';
 import mdx from '@mdx-js/rollup';
@@ -15,6 +12,7 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
+    outDir: 'dist', // Important: Specify an output directory
   },
   server: {
     port: 7777,
@@ -25,11 +23,10 @@ export default defineConfig({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
       providerImportSource: '@mdx-js/react',
     }),
-    remixCloudflareDevProxy(),
     remix({
       routes(defineRoutes) {
         return defineRoutes(route => {
-          route('/', 'routes/home/route.js', { index: true });
+          route('/portfolio', 'routes/home/route.js', { index: true });
         });
       },
     }),

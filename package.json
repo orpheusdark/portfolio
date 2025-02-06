@@ -1,8 +1,8 @@
 {
   "name": "portfolio",
-  "homepage": "https://github.com/orpheusdark/ncme",
+  "homepage": "https://github.io/portfolio",
   "description": "Portfolio site for Nirant Chavda",
-  "repository": "https://github.com/orpheusdark/ncme.git",
+  "repository": "https://github.com/orpheusdark/portfolio.git",
   "author": "Nirant Chavda",
   "sideEffects": false,
   "type": "module",
